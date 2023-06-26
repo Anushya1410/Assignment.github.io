@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    #left-panel {
+      width: 20%;
+      background-color: #ec7f1a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .component {
+      margin: 10px 0;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .component:hover {
+      background-color: #f57665;
+    }
+
+    #content {
+      flex: 1;
+      background-image: url(bg1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #content p {
+      font-size: 24px;
+      text-align: center;
+      color: #030303;
+      max-width: 70%;
+    }
+  </style>
+</head>
+<body>
+  <div id="left-panel">
+    <div class="component" onclick="showContent('home')">Home</div>
+    <div class="component" onclick="showContent('contact')">Contact</div>
+    <div class="component" onclick="showContent('information')">Information</div>
+    <div class="component" onclick="showContent('guide')">Guide</div>
+  </div>
+  <div id="content">
+    <p id="home-content" style="display: none;"><b><i>Welcome to our restaurant! We offer a wide range of delicious dishes prepared with fresh ingredients. Come and enjoy our warm hospitality.</b>i></b></p>
+    <p id="contact-content" style="display: none;"><b><i>You can reach us at the following contact details:</i></b><br>
+        <b><i>Phone: 222-123-231</i></b><br>
+        <b><i>Email: info@restaurant.com</i></b><br>
+        <b><i>Address: 123 Main Street, mumbai, India</i></b></p>
+    <p id="information-content" style="display: none;"><b><i>Our restaurant serves various cuisines including Italian, Mexican, and Asian. We have vegetarian and vegan options available. Check out our menu for more details.</i></b></p>
+    <p id="guide-content" style="display: none;"><b><i>To make a reservation, please call us or use our online reservation system on our website. We recommend booking in advance, especially during peak hours.</i></b></p>
+  </div>
+
+  <script>
+    function showContent(component) {
+      var components = ['home', 'contact', 'information', 'guide'];
+      for (var i = 0; i < components.length; i++) {
+        var content = document.getElementById(components[i] + '-content');
+        content.style.display = 'none';
+      }
+      var selectedContent = document.getElementById(component + '-content');
+      selectedContent.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
